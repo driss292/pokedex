@@ -2,4 +2,4 @@
 
 https://pokeapi.co/api/v2/pokemon/
 
-<img src="https://drive.google.com/file/d/1IT6ileKMTqte5_RfFOZ56f_32MephU1F/view?usp=sharing"/>
+<img src="https://res.cloudinary.com/dbu3ntrbw/image/upload/v1656084701/pokedex-img_tarbhx.jpg"/>
