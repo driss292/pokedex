@@ -4,6 +4,7 @@ const formRecherche = document.querySelector("form");
 const chargement = document.querySelector(".loader");
 let allPokemon = [];
 let tableauFin = [];
+const limit = 350;
 
 const types = {
     grass: "#78c850",
@@ -43,7 +44,7 @@ const fecthPokemenComplet = (pokemon) => {
                     // console.log(pokeData);
                     objPokemenFull.name = pokeData.names[4].name;
                     allPokemon.push(objPokemenFull);
-                    if (allPokemon.length === 151) {
+                    if (allPokemon.length === limit) {
                         // console.log(allPokemon);
                         tableauFin = allPokemon
                             .sort((a, b) => {
@@ -58,7 +59,7 @@ const fecthPokemenComplet = (pokemon) => {
         });
 };
 const fecthPokemenBase = () => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
         .then((res) => res.json())
         .then((allPoke) => {
             // console.log(allPoke);
@@ -104,7 +105,7 @@ window.addEventListener("scroll", () => {
 let index = 21;
 
 function addPoke(nb) {
-    if (index > 151) {
+    if (index > allPokemon.length) {
         return;
     }
     const arrToAdd = allPokemon.slice(index, index + nb);
@@ -122,7 +123,7 @@ searchInput.addEventListener("keyup", recherche);
 // });
 
 function recherche() {
-    if (index < 151) {
+    if (index < allPokemon.length) {
         addPoke(130);
     }
     let filter, allLi, titleValue, allTitles;
